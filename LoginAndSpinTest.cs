@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using SparkwareTest.Pages;
@@ -22,7 +23,7 @@ namespace SparkwareTest
         [Test]
         public void AuthAndPlayTest()
         {
-            Driver.Navigate().GoToUrl("https://www.888casino.ro/");
+            Driver.Navigate().GoToUrl(TestData.APP_URL);
             Driver.Manage().Window.Maximize();
 
             var homePage = new HomePage();
@@ -32,8 +33,8 @@ namespace SparkwareTest
 
             homePage.OpenTheLoginForm();
 
-            loginForm.Login("Amazing91009", "Testing1234");
-            Assert.AreEqual(homePage.DisplayedUserName.Text, "AMAZING91009");
+            loginForm.Login(TestData.VALID_USERNAME, TestData.VALID_PASSWORD);
+            Assert.AreEqual(homePage.DisplayedUserName.Text, TestData.VALID_USERNAME.ToUpper());
 
             accountVerificationModal.CloseModal();
 
