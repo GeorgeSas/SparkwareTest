@@ -5,7 +5,7 @@ using OpenQA.Selenium;
 
 namespace SparkwareTest
 {
-    class DriverHelper
+    public class DriverHelper
     {
         public static IWebDriver Driver { get; set; }
     }
