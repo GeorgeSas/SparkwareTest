@@ -13,6 +13,12 @@ namespace SparkwareTest
             Driver = new ChromeDriver();
         }
 
+        [TearDown]
+        public void GlobalTeardown()
+        {
+            Driver.Quit();
+        }
+
         [Test]
         public void AuthAndPlayTest()
         {
@@ -28,5 +34,7 @@ namespace SparkwareTest
             accountVerificationModal.CloseModal();
 
         }
+
+        
     }
 }
