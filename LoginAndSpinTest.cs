@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using SparkwareTest.Pages;
@@ -20,9 +21,12 @@ namespace SparkwareTest
 
             var homePage = new HomePage();
             var loginForm = new LoginForm();
+            var accountVerificationModal = new AccountVerificationModal();
 
             homePage.ClickTheLoginButton();
             loginForm.Login("Amazing91009", "Testing1234");
+            accountVerificationModal.CloseModal();
+
         }
     }
 }
