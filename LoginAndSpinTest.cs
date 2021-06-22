@@ -29,9 +29,10 @@ namespace SparkwareTest
             var loginForm = new LoginForm();
             var accountVerificationModal = new AccountVerificationModal();
 
-            homePage.ClickTheLoginButton();
+            homePage.OpenTheLoginForm();
             loginForm.Login("Amazing91009", "Testing1234");
             accountVerificationModal.CloseModal();
+            homePage.SearchAndAccessGame("Trail of Treats");
 
         }
 
