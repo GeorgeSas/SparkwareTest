@@ -8,9 +8,13 @@ namespace SparkwareTest.Pages
 {
     class HomePage : DriverHelper
     {
+        public WebDriverWait Wait { get; set; } = new WebDriverWait(Driver, new TimeSpan(0, 0, 60));
         public IWebElement LoginBtn => Driver.FindElement(By.ClassName("sc-fzoydu"));
         public IWebElement SearchInput => Driver.FindElement(By.ClassName("cy-game-search-input"));
-         IList<IWebElement> ListOfGames => Driver.FindElements(By.ClassName("cy-search-game-item"));
+        public IList<IWebElement> ListOfGames => Driver.FindElements(By.ClassName("cy-search-game-item"));
+
+        public IWebElement DisplayedUserName => 
+            Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(".sc-qYHkt.bUQxfF")));
 
         public void OpenTheLoginForm() => LoginBtn.Click();
 

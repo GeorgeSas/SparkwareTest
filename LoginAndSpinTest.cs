@@ -28,12 +28,18 @@ namespace SparkwareTest
             var homePage = new HomePage();
             var loginForm = new LoginForm();
             var accountVerificationModal = new AccountVerificationModal();
+            var gamePage = new GamePage();
 
             homePage.OpenTheLoginForm();
+
             loginForm.Login("Amazing91009", "Testing1234");
+            Assert.AreEqual(homePage.DisplayedUserName.Text, "AMAZING91009");
+
             accountVerificationModal.CloseModal();
+
             homePage.SearchAndAccessGame("Trail of Treats");
 
+            ///gamePage.SpinOneTime();
         }
 
         
