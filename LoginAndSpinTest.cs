@@ -26,10 +26,11 @@ namespace SparkwareTest
             Driver.Navigate().GoToUrl(TestData.APP_URL);
             Driver.Manage().Window.Maximize();
 
+            // Init necessary page objects
             var homePage = new HomePage();
             var loginForm = new LoginForm();
             var accountVerificationModal = new AccountVerificationModal();
-            var gamePage = new GamePage();
+            //var gamePage = new GamePage();
 
             homePage.OpenTheLoginForm();
 
@@ -39,8 +40,7 @@ namespace SparkwareTest
             accountVerificationModal.CloseModal();
 
             homePage.SearchAndAccessGame("Trail of Treats");
-
-            ///gamePage.SpinOneTime();
+            //gamePage.SpinOneTime();
         }
 
         

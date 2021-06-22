@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace SparkwareTest.Pages
 {
     class GamePage: DriverHelper
     {
-        public IWebElement OKButton => Driver.FindElement(By.Id("cy-play-real-game-button"));
-        public IWebElement SpinButton => Driver.FindElement(By.Id("spin_button"));
+        public WebDriverWait Wait { get; set; } = new WebDriverWait(Driver, new TimeSpan(0, 0, 60));
+        public IWebElement OKButton => Wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id("gameCanvas")));
+        public IWebElement SpinButton => Driver.FindElement(By.ClassName("spin_button"));
 
         private void ConfirmGameFrame()
         {
@@ -16,7 +18,7 @@ namespace SparkwareTest.Pages
         }
         public void SpinOneTime()
         {
-            ConfirmGameFrame();
+            //ConfirmGameFrame();
             SpinButton.Click();
         }
     }
